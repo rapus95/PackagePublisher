@@ -1,0 +1,4 @@
+[deps]
+HubCLI = "4dccea4f-7716-450f-9d24-0ee75e7372ff"
+JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"

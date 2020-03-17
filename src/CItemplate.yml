@@ -1,0 +1,35 @@
+name: <CIName>
+on:
+  - push
+  - pull_request
+jobs:
+  test:
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        version:
+          - '1.3'
+          - 'nightly'
+        os:
+          - ubuntu-latest
+#           - macOS-latest
+#           - windows-latest
+        arch:
+          - x64
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: ${{ matrix.version }}
+          arch: ${{ matrix.arch }}
+      - name: webfactory/ssh-agent
+        uses: webfactory/ssh-agent@v0.2.0
+        with:
+          # Private SSH key to register in the SSH agent
+          ssh-private-key: ${{ secrets.<SecretName> }}
+      - name: setup registry access
+        run: |
+          julia -e "using Pkg; pkg\"registry add <Registries>\""
+      - uses: julia-actions/julia-buildpkg@latest
+      - uses: julia-actions/julia-runtest@latest

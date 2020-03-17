@@ -1,0 +1,3 @@
+struct ModuleConfig
+    
+end
