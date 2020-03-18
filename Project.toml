@@ -1,3 +1,8 @@
+name = "PackagePublisher"
+uuid = "b6d917ee-5e04-4482-98bc-b6af35a7e480"
+authors = ["Aaron R. Matthis <rapus95@gmail.com>"]
+version = "0.1.0"
+
 [deps]
 HubCLI = "4dccea4f-7716-450f-9d24-0ee75e7372ff"
 JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
